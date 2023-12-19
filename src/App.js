@@ -1,26 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import Chat from "./pages/Chat";
+import NotFound from "./pages/NotFound";
+import Header from "./components/Header";
+import { useAuth } from "./context/AuthContext";
 
 function App() {
+  console.log(useAuth());
   return (
     <>
+      <Header />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h2>hello</h2>
-              <Home />
-            </>
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/chat" element={<Chat />} />
-        <Route path="*" element={<NotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );
